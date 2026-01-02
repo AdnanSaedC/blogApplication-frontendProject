@@ -4,11 +4,11 @@ import {ID,Client,Account} from "appwrite";
 export class AuthService {
     //the goal of this approach tomorrow when we are changing our backnd just chnage the defination of the functions and your frontend remains safe
     // in order to create an account usigng appwrite we need client and account
-    client = new Client();
+    client
     account;
 
     constructor(){
-        this.client = new Client()
+        this.client
                 .setProject(config.appwriteProjectId)
                 .setEndpoint(config.appwriteUrl)
 
