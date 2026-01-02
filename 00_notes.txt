@@ -1,0 +1,16 @@
+we are using app write to handle our backend since this project will focus lot more on react part(front end) then  backend part
+
+so we are using appwrite which is a BAAS(backend as a service) similarly to firebase(which is own by google)
+
+and we will use tinyMCE it is an open source text editor 
+
+we will also use html react parser to parse html code
+
+we will also use react hook form to handle forms
+
+rules of env while using with react
+    if you have created your react app using create react then ur .env variables must have REACT_APP as suffix
+
+everytime when you make changes in environment variables reload the application
+(it is a good practise)
+
