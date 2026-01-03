@@ -14,3 +14,8 @@ rules of env while using with react
 everytime when you make changes in environment variables reload the application
 (it is a good practise)
 
+we have used here foreward ref what it does is simple it look you hve a component a inside that you have another component B now you want to the component B to be a part of component A not just values and variables
+
+in order to handle that we have forward ref it helps to pass referemce between components
+
+problem the parent component wants to control the DOM inside the child like onclick etc

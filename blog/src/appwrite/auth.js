@@ -4,7 +4,7 @@ import {ID,Client,Account} from "appwrite";
 export class AuthService {
     //the goal of this approach tomorrow when we are changing our backnd just chnage the defination of the functions and your frontend remains safe
     // in order to create an account usigng appwrite we need client and account
-    client
+    client = new Client()
     account;
 
     constructor(){
@@ -12,7 +12,7 @@ export class AuthService {
                 .setProject(config.appwriteProjectId)
                 .setEndpoint(config.appwriteUrl)
 
-        this.account(new Account(this.client))
+        this.account=new Account(this.client)
     }
 
     async createAccount({email,password,username}){
@@ -22,7 +22,7 @@ export class AuthService {
 
             if(userAccount){
                 //login the user
-                return this.loginAccount(email,password)
+                return this.loginAccount({email,password})
             }
             else{
                 return userAccount
@@ -49,7 +49,6 @@ export class AuthService {
             return await this.account.get()
         } catch (error) {
             console.log("getCurrentUserError: "+error)
-            throw error
         }
 
         return null
