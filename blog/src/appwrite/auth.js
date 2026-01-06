@@ -38,7 +38,7 @@ export class AuthService {
 
     async loginAccount({email,password}){
         try {
-            console.log("connection prev")
+            
             return  this.account.createEmailPasswordSession(email,password)
         } catch (error) {
                         console.log("appwrite login error"+error)

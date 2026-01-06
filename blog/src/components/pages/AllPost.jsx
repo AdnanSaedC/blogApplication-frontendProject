@@ -7,11 +7,11 @@ function AllPost() {
     const [post,setPost] = useState([])
     useEffect(()=>{
         // we are not passing any queries we are just giving an empty array
-        console.log("fetching all posts")
+        
         service.getPost()
                         .then((posts)=>{
                             if(posts){
-                                console.log(posts)
+                        
                                 setPost(posts.documents)
                             }
                         })

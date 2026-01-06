@@ -54,7 +54,7 @@ export default function Post() {
                     {isAuthor && (
                         <div className="absolute right-6 top-6">
                             <Link to={`/edit-post/${post.$id}`}>
-                                <Button bgColor="bg-green-500" className="mr-3">
+                                <Button bgColor="bg-green-500" className="mr-2">
                                     Edit
                                 </Button>
                             </Link>
@@ -68,7 +68,8 @@ export default function Post() {
                     <h1 className="text-2xl font-bold">{post.title}</h1>
                 </div>
                 <div className="browser-css">
-                    {parse(post.content)} //since the content is we are storing in html format in database(Realtime editor which we are using stores that way)
+                    {parse(post.content)} 
+                    {/* //since the content is we are storing in html format in database(Realtime editor which we are using stores that way) */}
                     </div>
             </Container>
         </div>

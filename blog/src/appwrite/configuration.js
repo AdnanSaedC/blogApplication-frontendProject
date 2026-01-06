@@ -16,7 +16,7 @@ export class Service{
 
        async createPost({title, slug, content, featuredImage, status, userId}){
         try {
-            console.log({ title, content, featuredImage, status, userId })
+            
 
             return await this.databases.createDocument(
                 config.appwriteDbId,
@@ -91,7 +91,7 @@ export class Service{
         // we are trying to fetch only those post where the active status id true
         // we can apply query on those attributes where we ahve turned indexing on
         try {
-            console.log("Fetching posts with queries:", queries);
+          
             const document= await this.databases.listDocuments(
                 config.appwriteDbId,
                 config.appwriteCollectionId,
@@ -140,7 +140,7 @@ export class Service{
                 config.appwriteBucketId,
                 fileId
             )
-            console.log("file preview url:", document)
+            
             return document
         } catch (error) {
             console.log("error while getting file preview"+error)

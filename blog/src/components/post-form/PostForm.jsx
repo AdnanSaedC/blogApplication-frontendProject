@@ -10,11 +10,12 @@ import service from '../../appwrite/configuration.js'
 function PostForm({post}) {
 
     const navigate = useNavigate()
+    console.log("Post in post form ",post)
     
     const { register,handleSubmit,watch,getValues,setValue,control} = useForm({
         defaultValues:{
             title:post?.title || "",
-            slug: post?.slug || "",
+            slug: post?.$id || "",
             content: post?.content || "",
             status: post?.status || "active"
         }
