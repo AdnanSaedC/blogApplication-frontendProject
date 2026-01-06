@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import service from '../appwrite/configuration.js'
 import { data, Link,useNavigate } from 'react-router-dom'
 import { login } from '../store/auth.js'
-import {Button,Input,Logo} from "./index.js"
+import {Button,InputBox,Logo} from "./index.js"
 import { useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import authService from "../appwrite/auth.js"
@@ -16,6 +16,7 @@ function SignUp() {
     const {register,handleSubmit}=useForm()
 
     const createAccount = async(data)=>{
+        console.log(data)
         setError("")
         try {
             const session = await authService.createAccount(data)
@@ -33,14 +34,14 @@ function SignUp() {
     }
 
   return (
-    <div className=''>
-        <div className="">
-            <div className="">
-                <span className="">
+    <div className='flex justify-center items-center min-h-screen'>
+        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+            <div className="text-center">
+                <span className="block mb-4">
                     <Logo width='100%'/>
-                    <h2 className=''>Sign up to create an account</h2>
-                    <p className="">
-                        <Link to="/login" className=''>
+                    <h2 className='text-2xl text-black'>Sign up to create an account</h2>
+                    <p className="w-full mt-2">
+                        <Link to="/login" className='w-full text-blue-500 hover:underline'>
                             Sign In
                         </Link>
                     </p>
@@ -50,8 +51,8 @@ function SignUp() {
                 </span>
             </div>
             <form onSubmit={handleSubmit(createAccount)}>
-                <div className="">
-                    <Input
+                <div className="space-y-4">
+                    <InputBox
                        label="Full name: "
                        placeholder="Enter your full name"
                        {...register("name",{
@@ -59,7 +60,7 @@ function SignUp() {
                        })}
                     />
 
-                    <Input
+                    <InputBox
                         label="Email: "
                         placeholder="Enter your email"
                         type="email"
@@ -72,7 +73,7 @@ function SignUp() {
                         })} //register is an objcet and the parameter is taken for name field
                     />
 
-                    <Input
+                    <InputBox
                         label="Password: "
                         placeholder="Enter your password"
                         type="password"

@@ -20,7 +20,7 @@ const InputBox = React.forwardRef( function InputBox({
                 { //it will only work if the label part is true
                     label && 
                     <label 
-                        className='inline-block mb-1 pl-1'
+                        className='inline-block mb-1 pl-1 text-black'
                         htmlFor={id}
                     >
                         {label}

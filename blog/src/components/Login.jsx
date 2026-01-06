@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Link,useNavigate} from "react-router-dom"
 import {login as authLogin} from "../store/auth.js"
-import {Button,Logo,Input} from "../components/index.js"
+import {Button,Logo,InputBox} from "../components/index.js"
 import { useDispatch } from 'react-redux'
 import service from "../appwrite/configuration.js"
 import {useForm} from "react-hook-form"
@@ -24,7 +24,8 @@ function Login() {
     const login = async (data)=>{
         setError("")
         try {
-            const session = await authService.login(data)
+            const session = await authService.loginAccount(data)
+            console.log("login page")
 
             if(session){
                 const userData = await authService.getCurrentUser()
@@ -33,15 +34,17 @@ function Login() {
                     // now you are logged in and i want to redirect
                     navigate("/")
                 }
+                console.log(userData)
             }
         } catch (error) {
+            console.log(error)
             setError(error.message)
         }
     }
 
   return (
     <div
-        className='flex items-center justify-center h-screen w-full'
+        className='flex text-black items-center justify-center h-screen w-full'
     >
         <div className="mx-auto w-full max-w-lg bg-gray-100 p-10  border border-black/10 rounded-xl">
             <div className="mb-2 flex justify-center">
@@ -62,7 +65,7 @@ function Login() {
             className='mt-8'
             >
                 <div className="space-y-5">
-                    <Input
+                    <InputBox
                         label="Email: "
                         placeholder="Enter your email"
                         type="email"
@@ -74,7 +77,7 @@ function Login() {
                             }
                         })} //register is an objcet and the parameter is taken for name field
                     />
-                    <Input
+                    <InputBox
                         label="Password"
                         placeholder="Enter your password"
                         type="password"

@@ -8,33 +8,35 @@ export class Service{
 
     constructor(){
         this.client
+                .setEndpoint(config.appwriteUrl)    
                 .setProject(config.appwriteProjectId)
-                .setEndpoint(config.appwriteUrl)
         this.databases= new Databases(this.client)
         this.bucket= new Storage(this.client)
     }
 
-    async createPost({title,slug,content,image,status,userId}) {
+       async createPost({title, slug, content, featuredImage, status, userId}){
         try {
+            console.log({ title, content, featuredImage, status, userId })
+
             return await this.databases.createDocument(
                 config.appwriteDbId,
-                config.appwriteCollectionId,
+                config.appwriteCollectionId,        
                 slug,
                 {
                     title,
                     content,
-                    image,
+                    featuredImage,
                     status,
-                    userId
+                    userId,
                 }
             )
         } catch (error) {
-            console.log("Error in create post"+error)
-            throw error
-        }        
+            console.log("Appwrite serive :: createPost :: error", error);
+        }
     }
 
-    async updatePost(slug,{title,content,image,status}){
+
+    async updatePost(slug,{title,content,featuredImage,status}){
          try {
             return await this.databases.updateDocument(
                 config.appwriteDbId,
@@ -43,7 +45,7 @@ export class Service{
                 {
                     title,
                     content,
-                    image,
+                    featuredImage,
                     status,
                 }
             )
@@ -78,7 +80,7 @@ export class Service{
                 slug,
             )
 
-            r
+            
         } catch (error) {
             console.log("error in getting the post"+error)
             throw error
@@ -89,11 +91,13 @@ export class Service{
         // we are trying to fetch only those post where the active status id true
         // we can apply query on those attributes where we ahve turned indexing on
         try {
-            return await this.databases.listDocuments(
-                config.appwriteUrl,
+            console.log("Fetching posts with queries:", queries);
+            const document= await this.databases.listDocuments(
+                config.appwriteDbId,
                 config.appwriteCollectionId,
                 queries
             )
+            return document
         } catch (error) {
             console.log("error in getting the document"+error)
         }
@@ -103,13 +107,15 @@ export class Service{
     // file services
     async uploadFile(file){
         try {
-            return await this.bucket.createFile(
+           
+            const document= await this.bucket.createFile(
                 config.appwriteBucketId,
                 ID.unique(),
                 file
             )
+            return document
         } catch (error) {
-            console.log("error while uploading file")
+            console.log("error while uploading file"+error)
             return false
         }
     }
@@ -117,7 +123,7 @@ export class Service{
     async deleteFile(fileId){
         // u will get this while creating the file
         try {
-            await this.databases.deleteFile(
+            await this.bucket.deleteFile(
                 config.appwriteBucketId,
                 fileId
             )
@@ -130,10 +136,12 @@ export class Service{
 
     async getFilePreview(fileId){
         try {
-            return await this.bucket.getFilePreview(
+            const document = await this.bucket.getFilePreview(
                 config.appwriteBucketId,
                 fileId
             )
+            console.log("file preview url:", document)
+            return document
         } catch (error) {
             console.log("error while getting file preview"+error)
             return false

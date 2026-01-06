@@ -24,7 +24,7 @@ function Select({
                 {
                     options?.map(
                         (eachValue)=>(
-                            <options key={eachValue} value={eachValue}>eachValue</options>
+                            <option key={eachValue} value={eachValue}>{eachValue}</option>
                         )
                     )
                 }

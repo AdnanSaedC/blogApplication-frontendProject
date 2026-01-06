@@ -12,7 +12,7 @@ export const authSlice = createSlice({
     reducers:{
         login:(state,action)=>{
             state.status=true;
-            state.userData=action.payload.userData //we are sending obj here
+            state.userData=action.payload //we are sending obj here
         },
         logout:(state)=>{
             state.status=false

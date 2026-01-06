@@ -1,4 +1,4 @@
-// we are createing tis for a basic reason that if enevironment variables comes not in string then the entire app may crash
+ // we are createing tis for a basic reason that if enevironment variables comes not in string then the entire app may crash
 
 const config={
     appwriteUrl:String(import.meta.env.VITE_APPWRITE_URL),
