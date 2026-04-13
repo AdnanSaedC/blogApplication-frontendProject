@@ -1,19 +1,25 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>blog</title>
-    <script src="https://cdn.tiny.cloud/1/apikey/0/tinymce/8/tinymce.min.js" referrerpolicy="origin" crossorigin="anonymous"></script>
-    <script>
-      tinymce.init({
-        selector: '#mytextarea'
-      });
-    </script>
-  </head>
-  <body>
-    <div id="root" className="text-black text-2xl"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>blog</title>
+  <script src="https://cdn.tiny.cloud/1/kut6mrmbxpsdxf7b9ssaedo1fwixd7n58si8ph0mhi2t6bp0/0/tinymce/8/tinymce.min.js"
+    referrerpolicy="origin" crossorigin="anonymous"></script>
+  <script>
+    tinymce.init({
+      selector: 'textarea',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+  </script>
+</head>
+
+<body>
+  <div id="root" className="text-black text-2xl"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

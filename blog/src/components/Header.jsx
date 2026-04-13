@@ -41,13 +41,15 @@ function Header() {
 
   return (
     <Container>
-      <nav className='flex'>
-        <div className="mr-4">
-          <Link to="/">
-            <Logo width="70px"/>  
+      <nav className='flex items-center justify-between py-4'>
+        <div className="flex items-center">
+          <Link to="/" className="group">
+            <div className="transform transition-transform duration-300 group-hover:scale-105">
+              <Logo width="70px" />  
+            </div>
           </Link>
         </div>
-        <ul className='flex ml-auto'>
+        <ul className='flex ml-auto items-center space-x-2 md:space-x-4'>
           {
             navItems.map(
               (eachItem)=>(
@@ -55,7 +57,7 @@ function Header() {
                 <li key={eachItem.name}>
                   <button 
                     onClick={()=> navigate(eachItem.slug)}
-                    className='inline-block px-6 py-2 duration-200 hover:bg-blue-400 rounded-full'
+                    className='inline-block px-5 py-2 text-sm font-medium text-slate-300 transition-all duration-300 hover:text-white hover:bg-white/10 rounded-full'
                   >
                     {eachItem.name}
                   </button>

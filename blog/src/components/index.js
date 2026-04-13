@@ -1,17 +1,17 @@
-import Header from "./header"
-import Footer from "./footer"
+import Header from "./Header.jsx"
+import Footer from "./Footer.jsx"
 import Container from "./container/Container"
-import Logo from "./logo"
-import LogoutBtn from './LogoutBtn'
-import RealTimeEditor from "./RealTimeEditor"
-import SignUp from "./SignUp"
-import Login from "./Login"
-import PostForm from "./post-form/PostForm"
-import PostCard from "./PostCard"
-import AuthLayout from "./AuthLayout"
-import Button from "./Button"
-import InputBox from "./InputBox"
-import Select from "./Select"
+import Logo from "./Logo.jsx"
+import LogoutBtn from './LogoutBtn.jsx'
+import RealTimeEditor from "./RealTimeEditor.jsx"
+import SignUp from "./SignUp.jsx"
+import Login from "./Login.jsx"
+import PostForm from "./post-form/PostForm.jsx"
+import PostCard from "./PostCard.jsx"
+import AuthLayout from "./AuthLayout.jsx"
+import Button from "./Button.jsx"
+import InputBox from "./InputBox.jsx"
+import Select from "./Select.jsx"
 
 
 export {
@@ -29,5 +29,5 @@ export {
     SignUp,
     Login,
     AuthLayout,
- 
+
 }

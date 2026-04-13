@@ -5,7 +5,7 @@ import App from './App.jsx'
 import { Provider } from 'react-redux'
 import store from './store/store.js'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { AuthLayout} from './components/index.js'
+import { AuthLayout } from './components/index.js'
 import AddPost from './components/pages/AddPost.jsx'
 import Login from "../src/components/Login.jsx"
 import SignUp from "../src/components/SignUp.jsx"
@@ -18,60 +18,62 @@ import EditPost from "../src/components/pages/EditPost.jsx"
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>, // for single slash run app
-    children:[
+    path: "/",
+    element: <App />, // for single slash run app
+    children: [
       {
-        index:true, //this means default route of parent
-        element:<Home/>
+        index: true, //this means default route of parent
+        element: <Home />
       },
       {
-        path:"login",
+        path: "login",
         element: (
           <AuthLayout authentication={false}>
-              <Login/>
+            <Login />
           </AuthLayout>
         )
       },
       {
-        path:"signup",
+        path: "signup",
         element: (
           <AuthLayout authentication={false}>
-              <SignUp/>
+            <SignUp />
           </AuthLayout>
         )
       },
       {
-        path:"all-post",
+        path: "all-post",
         element: (
-          <AuthLayout authentication>{" "}  
-          {/* //just to add space */}
-              <AllPost/>
+          <AuthLayout authentication>{" "}
+            {/* //just to add space */}
+            <AllPost />
           </AuthLayout>
         )
       },
       {
-        path:"add-post",
+        path: "add-post",
         element: (
-          <AuthLayout authentication>{" "}  
-          {/* //just to add space */}
-              <AddPost/>
+          <AuthLayout authentication>{" "}
+            {/* //just to add space */}
+            <AddPost />
           </AuthLayout>
         )
       },
       {
-        path:"edit-post/:slug",
+        path: "edit-post/:slug",
         element: (
-          <AuthLayout authentication>{" "}  //just to add space
-              <EditPost/>
+          <AuthLayout authentication>{" "}
+            {/* //just to add space */}
+            <EditPost />
           </AuthLayout>
         )
       },
       {
-        path:"/post/:slug",
+        path: "/post/:slug",
         element: (
-          <AuthLayout authentication>{" "}  //just to add space
-              <Post/>
+          <AuthLayout authentication>{" "}
+            {/* //just to add space */}
+            <Post />
           </AuthLayout>
         )
       },
@@ -82,6 +84,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-      <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </Provider>,
 )
