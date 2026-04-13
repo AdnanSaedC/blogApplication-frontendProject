@@ -1,3 +1,18 @@
+# 08 - Blog Application (Frontend)
+
+A full-featured **Blog Application** built with React. It allows users to sign up, log in, create/edit/delete blog posts with a rich text editor, and view all published posts.
+
+## Features
+
+- User authentication (sign up, log in, log out) via Appwrite
+- Create, edit, and delete blog posts
+- Rich text editor powered by TinyMCE
+- HTML content rendering with html-react-parser
+- Global state management with Redux Toolkit
+- Form handling and validation with React Hook Form
+- Protected routes for authenticated users
+- Responsive layout
+
 ## Tech Stack
 
 - **Appwrite** – handles the backend  
@@ -6,11 +21,7 @@
 - **React Hook Form** – handles form state and validation
 - **Redux** - for context api(single source of truth) 
 
-# Blog Application — Frontend
 
-A full-featured blog platform built with React, powered by Appwrite as a Backend-as-a-Service (BaaS). Users can sign up, log in, create rich-text blog posts, edit them, and browse all posts — with protected routes and global state management via Redux.
-
----
 
 ## Screenshots
 
